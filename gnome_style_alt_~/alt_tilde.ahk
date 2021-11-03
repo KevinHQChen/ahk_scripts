@@ -19,6 +19,7 @@ DetectHiddenWindows, Off
 CurrInd := 0
 Direction := 1
 GoSub Switch
+Send  {Esc}
 Thread, Priority, 0
 Thread, Interrupt, 15, 1000
 exit
@@ -33,6 +34,7 @@ DetectHiddenWindows, Off
 CurrInd := 0
 Direction := 0
 GoSub Switch
+Send  {Esc}
 Thread, Priority, 0
 Thread, Interrupt, 15, 1000
 exit
@@ -111,7 +113,7 @@ InitCurrInd := CurrInd
 
 ; subsequent switches (forward/backward)
 Loop {
-Sleep 200
+Sleep 150
     if GetKeyState("LAlt")
     {
         if GetKeyState("LShift")

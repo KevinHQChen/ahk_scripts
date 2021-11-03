@@ -1,4 +1,3 @@
-
 !Tab::
 ; this makes each thread interruptible but higher priority than the other thread, causing buffered commands to be discarded
 Thread, Priority, 10
@@ -10,6 +9,7 @@ CurrInd := 0
 Direction := 1
 ProcArray := []         ; FYI this is an object array (as opposed to pseudo-arrays which don't need to be initialized in advance)
 GoSub Switch
+Send  {Esc}
 Thread, Priority, 0
 Thread, Interrupt, 15, 1000
 exit
@@ -25,6 +25,7 @@ CurrInd := 0
 Direction := 0
 ProcArray := []
 GoSub Switch
+Send  {Esc}
 Thread, Priority, 0
 Thread, Interrupt, 15, 1000
 exit
@@ -119,7 +120,7 @@ InitCurrInd := CurrInd
 
 ; subsequent switches (forward/backward)
 Loop {
-    Sleep 200
+    Sleep 150
     if GetKeyState("LAlt")
     {
         if GetKeyState("LShift")
